@@ -1,0 +1,21 @@
+/*
+Theme Name: Fleurs d'oranger & chats errants - Child
+Theme URI: https://www.studio-koukaki.com/fleurs-d-oranger/
+Description: Thème enfant pour le Studio Koukaki
+Author: Studio Koukaki
+Template: foce
+Version: 1.0.0
+*/
+
+// Fondations & variables
+@import 'variables';
+@import 'keyframes';
+
+// Comportements généraux
+@import 'animations';
+
+// Modules & composants
+@import 'header-menu';
+@import 'carrousel';
+@import 'nuages';
+@import 'oscars';

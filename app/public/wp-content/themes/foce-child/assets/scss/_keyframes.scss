@@ -1,0 +1,23 @@
+// KEYFRAMES D'ANIMATIONS //
+
+@keyframes flower-rotation {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); } // les fleurs tournent de 0 à 360degrés
+}
+
+// on définit un mouvement (chats de la banner) par différentes positions au long de l'animation
+@keyframes floating {
+    0%   { transform: translate(0, 0); }
+    30%  { transform: translate(10px, -15px); }
+    50%  { transform: translate(-8px, -7px); }
+    70%  { transform: translate(15px, -10px); } 
+    100% { transform: translate(0, 0); }
+}
+
+@keyframes cat-floating {
+    0%   { transform: translate(0, 0) rotate(0deg); }
+    25%  { transform: translate(12px, -15px) rotate(4deg); }
+    50%  { transform: translate(-6px, -25px) rotate(-3deg); }
+    75%  { transform: translate(-15px, -10px) rotate(3deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}

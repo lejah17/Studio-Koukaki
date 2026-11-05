@@ -1,0 +1,3 @@
+[17-Jul-2026 09:18:57 UTC] PHP Parse error:  syntax error, unexpected identifier "null", expecting ")" in /Users/ljacq/Local Sites/studio-koukaki/app/public/wp-content/themes/foce-child/functions.php on line 22
+[17-Jul-2026 09:19:42 UTC] PHP Parse error:  syntax error, unexpected identifier "null", expecting ")" in /Users/ljacq/Local Sites/studio-koukaki/app/public/wp-content/themes/foce-child/functions.php on line 22
+[17-Jul-2026 09:19:54 UTC] PHP Parse error:  syntax error, unexpected identifier "true", expecting ")" in /Users/ljacq/Local Sites/studio-koukaki/app/public/wp-content/themes/foce-child/functions.php on line 22

@@ -1,0 +1,266 @@
+// HEADER + STRUCTURE DU MENU BURGER //
+
+body.admin-bar {
+    // masquage de la barre d'administration
+    #wpadminbar {
+        display: none !important;
+    }
+}
+
+#masthead {
+    position: fixed !important; 
+    top: 0 !important; 
+    left: 0;
+    width: 100%;
+    height: $header-height !important;
+    padding: 0 !important;
+    background-color: $color-orange !important; 
+    z-index: 1000 !important; // passe devant le menu fullscreen
+
+    // RESPONSIVE MOBILE
+    @media (max-width: 768px) {
+        position: fixed !important;
+    }
+}
+
+#site-navigation {
+    position: relative !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: $header-height;
+    margin: 0;
+
+    a {
+        color: $color-black;
+
+        &:hover,
+        &:focus,
+        &:active {
+            color: $color-black !important; 
+            outline: none !important;
+        }
+    }
+
+    // RESPONSIVE MOBILE
+    @media (max-width: 768px) {
+        padding: 0 20px !important; 
+    }
+}
+
+// décale la structure au niveau de #page pour laisser la barre de menu visible
+#page {
+    padding-top: 30px;
+
+    // RESPONSIVE MOBILE 
+    @media (max-width: 768px) {
+        padding-top: 0;
+    }
+}
+
+#primary.site-main {
+    padding-top: 0 !important; 
+}
+
+.main-navigation ul {
+    gap: 30px;
+    padding-top: 50px;
+
+    // RESPONSIVE MOBILE
+    @media (max-width: 768px) { 
+        padding-top: 50px; 
+    }
+    // RESPONSIVE TABLET
+    @media screen and (min-width: 769px) and (max-width: 920px) { 
+        padding-top: 30px; 
+    }
+}
+
+.site-title {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    list-style: none;
+    z-index: 1010 !important; // au-dessus du menu beige
+
+    // RESPONSIVE MOBILE
+    @media (max-width: 768px) {
+        font-size: 1.1rem !important;
+        white-space: nowrap !important;
+    }
+}
+
+/* bouton */
+.main-navigation button {
+    margin: 0;
+    border: none;
+    margin-right: 130px;
+
+    // RESPONSIVE MOBILE
+    @media (max-width: 768px) { margin-right: 0 !important; }
+}
+
+.menu-toggle {
+    position: relative;
+    z-index: 1010 !important; // toujours visible
+    display: flex !important;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    padding: 0 !important; // espace interne entre les lignes du bouton
+    margin-left: auto !important; // placement du bouton à droite
+    background: transparent;
+    cursor: pointer;
+    background-color: transparent !important;
+
+    .line {
+        display: block;
+        width: 100%;
+        height: 3px;
+        background-color: $color-black;
+        border-radius: 2px;
+        transition: all 0.3s ease; 
+    }
+}
+
+// le bouton devient une croix quand le menu est ouvert
+#site-navigation.open {
+    .menu-toggle {
+        background: url('../img/burger_croix.png') center no-repeat !important;
+        .line { opacity: 0; } // cache les traits d'origine
+    }
+}
+
+/* menu ouvert plein écran */
+.menu-fullscreen-container {
+    position: fixed !important;
+    top: $header-height !important; 
+    left: 0;
+    width: 100%;
+    height: calc(100vh - #{$header-height}) !important; // vh = viewport height
+    background: $color-beige; 
+    z-index: 900 !important; // se glisse sous la barre orange
+    padding-top: 50px;
+    box-sizing: border-box;
+    transform: translateY(-100%);
+    transition: transform 0.6s ease, visibility 0.6s ease;
+    visibility: hidden;
+    overflow-x: hidden !important;
+    overflow-y: hidden !important; 
+
+    #site-navigation.open & {
+        transform: translateY(0);
+        visibility: visible; 
+    }
+
+    // RESPONSIVE MOBILE + TABLET
+    // désactivation des illustrations en mode tablette/mobile
+    @media (max-width: 920px) {
+        .cat-nobg, .menu-flower {
+            display: none !important;
+        }
+    }
+}
+
+/* contenu du menu */
+.menu-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 5;
+
+    @media (max-width: 768px) {
+        justify-content: flex-start !important;
+        padding-top: 10px !important;
+        margin-top: 0 !important;
+
+        // réduction des espaces entre les titres du menu
+        .menu-titles {
+            margin-top: 15px !important;
+            gap: 30px !important;
+        }
+    }
+}
+
+.menu-logo {
+    width: 155px;
+    height: auto;
+    filter: drop-shadow(0px 0px 14px #FF5C00);
+    margin-top: -20px;
+
+    // RESPONSIVE MOBILE
+    @media (max-width: 768px) {
+        width: 110px; 
+        margin-bottom: 20px;
+    }
+}
+
+.menu-titles {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 0;
+    margin-bottom: 40px !important; // repousse le footer vers le bas
+
+    li {
+        font-size: 2.5rem; 
+        color: $color-black;
+        cursor: pointer;
+        list-style: none;
+        transition: transform 0.3s ease, text-shadow 0.3s ease, color 0.3s ease;
+        
+        &:hover {
+            color: $color-black; 
+            text-shadow: 0px 0px 14px #FF5C00;
+        }
+
+        // RESPONSIVE MOBILE
+        @media (max-width: 768px) { 
+            font-size: 1.8rem; 
+        }
+        // RESPONSIVE TABLET
+        @media screen and (min-width: 769px) and (max-width: 920px) { 
+            font-size: 2rem; 
+        }
+    }
+}
+
+.menu-footer-title {
+    color: $color-black;
+    margin-bottom: 20px;
+}
+
+// décors du menu 
+.menu-fullscreen-container {
+    .cat-nobg {
+        position: absolute; 
+        height: auto;
+        z-index: -1;
+        animation: cat-floating 7s ease-in-out infinite;
+    }
+
+    .menu-flower {
+        position: absolute;
+        background-size: contain;
+        background-repeat: no-repeat;
+        animation: flower-rotation 12s linear infinite; 
+        z-index: -1; 
+    }
+}
+
+// placement chats
+.kawaneko { width: 110px; top: 30%; left: 20%; }
+.jaakuna   { width: 155px; top: 57%; right: 14%; }
+.orenjiiro { width: 106px; bottom: 5%; left: 5%; }
+
+// placement fleurs
+.flower           { top: 57%; left: 15%; width: 70px; height: 70px; background-image: url('../img/flower.png'); }
+.sunflower        { top: 18%; right: 12%; width: 216px; height: 216px; background-image: url('../img/sunflower.png'); }
+.flower-random    { top: 52%; right: -2%; width: 75px; height: 75px; background-image: url('../img/random_flower.png'); }
+.flower-orchid    { top: 16%; left: -6%; width: 172px; height: 170px; background-image: url('../img/orchid.png'); }
+.flower-hibiscus  { bottom: -30%; right: -15%; width: 400px; height: 400px; background-image: url('../img/hibiscus_footer.png'); }

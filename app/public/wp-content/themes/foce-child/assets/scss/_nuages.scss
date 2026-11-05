@@ -1,0 +1,63 @@
+// NUAGES SECTION LIEU //
+
+.story #place {
+    background-image: url('../img/place_bg_noclouds.png'); // on remplace par le bg sans nuage
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.cloud {
+    position: absolute;
+    filter: blur(10px); // application de l'effet flou
+    opacity: 0.9; // opacité du flou
+    will-change: transform;
+}
+
+.big-cloud {
+    // positionnement
+    left: 80%;
+    top: 70px;
+    width: 300px;
+
+    // RESPONSIVE MOBILE
+    @media (max-width: 768px) {
+        left: 70% !important;
+        top: 80px !important;
+        width: 150px !important; 
+        z-index: 0;
+        transform: none !important;
+    }
+    // RESPONSIVE TABLET
+    @media screen and (min-width: 769px) and (max-width: 920px) {
+        left: 75% !important;
+        top: 60px !important;
+        width: 200px !important; 
+        transform: none !important;
+    }
+}
+
+.little-cloud {
+    // positionnement
+    left: 65%;
+    top: 250px;
+    width: 150px;
+
+    // RESPONSIVE MOBILE
+    @media (max-width: 768px) {
+        // enlève l'effet parallaxe
+        left: 5% !important;
+        top: 200px !important;
+        width: 80px !important;
+        z-index: 0;
+        transform: none !important;
+    }
+    // RESPONSIVE TABLET
+    @media screen and (min-width: 769px) and (max-width: 920px) {
+        // enlève l'effet parallaxe
+        left: 5% !important;
+        top: 270px !important;
+        width: 110px !important;
+        transform: none !important;
+    }
+}
